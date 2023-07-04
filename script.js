@@ -2,8 +2,8 @@ const form = document.getElementById("form");
 const tableBody = document.querySelector("tbody");
 const searchBox = document.getElementById("search");
 
-let idCounter = 1;
 let currentEditId = null;
+let idCounter = 1;
 const studentsList = [];
 
 form.addEventListener("submit", function(event) {
@@ -38,7 +38,7 @@ form.addEventListener("submit", function(event) {
 		// Reset the form and currentEditId
 		form.reset();
 		currentEditId = null;
-		document.getElementById("crudBtn").textContent = "Add Students";
+		document.getElementById("crudBtn").textContent = "Add Student";
 	} else {
 		// Add new student to the list
 		const newStudent = {
@@ -121,28 +121,26 @@ tableBody.addEventListener("click", function(event) {
 		// Get the row ID
 		const id = parseInt(target.dataset.id);
 
-// Remove the student from the list
+		// Remove the student from the list
 		const index = studentsList.findIndex(student => student.id === id);
 		if (index !== -1) {
 			studentsList.splice(index, 1);
 		}
 
-// Remove the row from the table body
+		// Remove the row from the table body
 		const row = document.getElementById(`row-${id}`);
 		row.remove();
 
-// Update the IDs of the remaining rows
+		// Reset the IDs of the remaining rows
 		const rows = tableBody.getElementsByTagName("tr");
-		for (let i = 0; i < rows.length; i++) {
-			const rowId = parseInt(rows[i].id.split("-")[1]);
-			if (rowId > id) {
-				rows[i].id = `row-${rowId - 1}`;
-				rows[i].querySelector(".edit-icon").dataset.id = rowId - 1;
-				rows[i].querySelector(".delete-icon").dataset.id = rowId - 1;
-				rows[i].getElementsByTagName("td")[0].textContent = rowId - 1;
-			}
-		}
-
+		idCounter = 1;
+		Array.from(rows).forEach(function(row) {
+			row.id = `row-${idCounter}`;
+			row.getElementsByTagName("td")[0].textContent = idCounter;
+			row.querySelector(".edit-icon").dataset.id = idCounter;
+			row.querySelector(".delete-icon").dataset.id = idCounter;
+			idCounter++;
+		});
 	}
 });
 

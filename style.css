@@ -34,6 +34,7 @@ h1 {
 	font-size: var(--fSizeHead); /*FallBack*/
 	font-size: 4.0vw;
 	font-weight: 700;
+	margin-bottom: 15px;
 }
 
 form {
@@ -42,8 +43,7 @@ form {
 	justify-content: space-between;
 	/*align-items: flex-start;*/
 	row-gap: 15px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 input {
@@ -54,15 +54,22 @@ input {
 
 }
 
-form input {
-	width: 30%;;
+form #name,#email, #gpa{
+	margin-right: 1%;
 }
+
+form input {
+	flex: 1;
+	width: 30%;;
+	flex-basis: 25%;
+}
+
 #degree {
-	width: 62.4%; /* Set the width of the degree input to 100% */
+	width: 62.4%;
 }
 
 #crudBtn {
-	display: block;
+	flex-basis: 50%;
 }
 
 /*Hide Up/Down Arrows*/
@@ -72,7 +79,6 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
-
 /*Firefox*/
 input[type=number] {
 	-moz-appearance: textfield;
@@ -86,9 +92,12 @@ button {
 i {
 	cursor: pointer;
 }
+.edit-icon{
+	margin-right: 10px;
+}
 
 #search {
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 	width: 100%;
 	height: 3.5vmax;
 }
