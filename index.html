@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>F2-ModuleTest</title>
+</head>
+<body>
+<h1>Student Management CRUD</h1>
+<form id="form">
+	<label for="name"></label><input type="text" name="name" id="name" placeholder="Name">
+	<label for="email"></label><input type="email" name="email" id="email" placeholder="Email">
+	<label for="gpa"></label><input type="number" min="0" max="10" step=".01" name="gpa" id="gpa" placeholder="GPA">
+	<label for="age"></label><input type="number" name="age" id="age" placeholder="Age">
+	<label for="degree"></label><input type="text" name="degree" id="degree" placeholder="Degree">
+	<button id="crudBtn" type="submit">Add Students</button>
+</form>
+
+<input type="search" name="search" id="search" placeholder="Search By Name, Email ">
+
+<table id="studentsTable">
+	<thead>
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Age</th>
+		<th>GPA</th>
+		<th>Degree</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
